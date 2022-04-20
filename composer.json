@@ -1,0 +1,15 @@
+{
+    "name": "alejandro_tellez/aquarium_mvc",
+    "description": "Proyecto web de Acuarios para comprar todo lo relacionado a Peces y acuarios Esto con el fin de realizar todo lo aprendido",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\": "./controllers",
+            "Model\\": "./models"
+        }
+    },
+    "authors": [{
+        "name": "Alejandro Tellez"
+    }],
+    "require": {}
+}
