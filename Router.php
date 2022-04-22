@@ -15,8 +15,7 @@ class Router{
         $this->routesPost[$url] = $function;
     }
 
-    public function verifyRoutes(){
-        
+    public function verifyRoutes(){        
         $actualRoute = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -27,7 +26,6 @@ class Router{
         }
         
         if ($function){
-            debuguear($function);
             call_user_func($function, $this);            
         } else {
             call_user_func([PagesController::class,'notFound']);
@@ -38,5 +36,11 @@ class Router{
         foreach($data as $key => $value){
             $$key = $value;
         }
+        ob_start();
+        include __DIR__ . "/views/$view.php";
+
+        $content = ob_get_clean();
+
+        include __DIR__ ."/views/layout.php";
     }
 }

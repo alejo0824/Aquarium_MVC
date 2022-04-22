@@ -32,4 +32,4 @@ function watchArchivos() {
 }
 
 exports.css = css;
-exports.watchArchivos = watchArchivos;
+exports.default = watchArchivos;

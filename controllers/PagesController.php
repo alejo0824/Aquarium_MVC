@@ -2,9 +2,17 @@
 
 namespace Controllers;
 
+use MVC\Router;
+
 class PagesController{
-    public static function home(){
-        echo'Hi my King We greet you from Home';
+    public static function home(Router $router){
+        
+        $title = 'home';
+        $text = ' This is a test';
+        $router->render('pages/home',[
+            'title' => $title,
+            'text' => $text
+        ]);
     }
 
     public static function aboutUs(){
