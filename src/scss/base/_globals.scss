@@ -24,8 +24,6 @@ p {
 
 .container {
     width: 95%;
-    max-width: 120rem;
-    margin: 0 auto;
 }
 
 a {
@@ -36,4 +34,12 @@ img,
 picture {
     width: 100%;
     display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
 }

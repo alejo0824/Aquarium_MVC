@@ -7,7 +7,7 @@
     <title>Aquarium | <?php echo $title ?? '' ;?> </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Halant:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Halant:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="build/css/app.css">
 
 </head>

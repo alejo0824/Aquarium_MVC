@@ -9,8 +9,10 @@ class PagesController{
         
         $title = 'home';
         $text = ' This is a test';
+        $homePage = TRUE;
         $router->render('pages/home',[
             'title' => $title,
+            'homePage' => $homePage,
             'text' => $text
         ]);
     }
