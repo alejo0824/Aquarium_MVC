@@ -17,8 +17,15 @@ class PagesController{
         ]);
     }
 
-    public static function aboutUs(){
-        echo'Hi my King We greet you from aboutUs';
+    public static function aboutUs(Router $router){
+        $title = 'about us';
+        $text = ' This is a test aboutUs';
+        $homePage = false;
+        $router->render('pages/home',[
+            'title' => $title,
+            'homePage' => $homePage,
+            'text' => $text
+        ]);
     }
 
     public static function services(){

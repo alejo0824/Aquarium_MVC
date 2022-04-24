@@ -1,105 +1,145 @@
-@use 'base/variables' as v;
-@use 'base/mixins' as m;
-.header {
-    padding: 0 3rem;
-    background-position: center center;
-    background-size: cover;
-    &.home {
-        height: 100vh;
-        background-color: lighten($color: v.$yellow, $amount: 20%);
+    @use 'base/variables' as v;
+    @use 'base/mixins' as m;
+    .header {
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
-}
-
-.container-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.container-header {
-    height: 100%;
-    .home-content {
-        margin: auto auto;
-        max-width: 75rem;
-        p,
-        h1 {
-            color: v.$light;
-        }
-        p {
-            text-transform: capitalize;
-            font-size: 2.3rem;
-            margin-bottom: 2rem;
-        }
-        h1 {
-            text-transform: uppercase;
-            font-size: 3.3rem;
-            font-weight: 700;
+    
+    .banner {
+        background-image: url(../img/inner-banner.jpg);
+        height: 20rem;
+        @include m.mobile {
+            height: 70rem;
         }
     }
-    @include m.tablet {
-        .home-content {
-            p {
-                font-size: 2.6rem;
-            }
-            h1 {
-                font-size: 4rem;
-            }
+    
+    .home {
+        background-image: url(../img/b1.jpg);
+        height: 60rem;
+        @include m.tablet {
+            height: 100vh;
         }
     }
-}
-
-.bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include m.tablet {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .logo {
-        a {
-            text-decoration: none;
-            color: v.$light;
-        }
-        h2 {
-            font-family: v.$fuente_logo;
-            font-size: 2.8rem;
-            &:hover {
-                color: v.$blue;
-            }
-            @include m.mobile {
-                font-size: 3.5rem;
-            }
-        }
-    }
-}
-
-.container-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .nav {
+    
+    .container-header {
+        background-color: rgb(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100%;
         display: flex;
+        justify-content: space-between;
         flex-direction: column;
-        a {
-            text-decoration: none;
+    }
+    
+    .bar {
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            font-family: v.$font_logo;
+            @include m.tablet {
+                font-size: 3rem;
+            }
+        }
+        .logo a {
             color: v.$light;
-            font-size: 1.9rem;
-            font-weight: 500;
-            margin-top: 1.2rem;
-            text-transform: capitalize;
             &:hover {
                 color: v.$cyan;
             }
         }
-        @include m.tablet {
-            flex-direction: row;
-            gap: 3rem;
-            margin: 0;
+    }
+    
+    .container-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            a {
+                color: v.$light;
+                text-align: center;
+                text-transform: capitalize;
+                &.active {
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 3rem;
+                        height: .1rem;
+                        background-color: v.$light;
+                        margin-top: .3rem;
+                    }
+                }
+                &:hover {
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 3rem;
+                        height: .1rem;
+                        background-color: v.$light;
+                        margin-top: .3rem;
+                    }
+                }
+            }
         }
-        @include m.desktop {
-            gap: 7rem;
+        .dark-mode-boton {
+            width: 2rem;
+            filter: invert(100%);
         }
     }
-}
+    
+    .home-content,
+    .banner-content {
+        padding: 2rem;
+    }
+    
+    .home-content {
+        margin-bottom: 20rem;
+        p,
+        h1,
+        a {
+            color: v.$light;
+        }
+        h1 {
+            margin: 1rem .5rem;
+        }
+        p,
+        h1 {
+            text-transform: capitalize;
+        }
+        p {
+            font-family: v.$font_titles;
+        }
+        @include m.mobile {
+            p {
+                font-size: 2.6rem;
+            }
+            h1 {
+                font-size: 4.5rem;
+            }
+        }
+        @include m.tablet {
+            max-width: 70%;
+            width: 70rem;
+            margin-left: 7rem;
+            p {
+                font-size: 2.6rem;
+            }
+            h1 {
+                font-size: 5.5rem;
+                text-transform: uppercase;
+                margin-bottom: 7rem;
+            }
+        }
+        @include m.desktop {
+            margin-left: 22rem;
+            margin-bottom: 31rem;
+        }
+        a {
+            text-transform: uppercase;
+            @include m.button (v.$cyan, v.$white, v.$orange);
+            border-radius: .5rem;
+            font-weight: 500;
+        }
+    }

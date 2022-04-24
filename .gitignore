@@ -157,3 +157,7 @@ dist
 *.scss.map
 
 # End of https://www.toptal.com/developers/gitignore/api/node,composer,sass
+
+#Lineas agregadas
+src/img
+public/build/img

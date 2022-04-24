@@ -9,13 +9,18 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 //===========================================================/
+//***************************img******************************
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache');
 
 const srcFile = {
-    scss: 'src/scss/**/*.scss'
+    scss: 'src/scss/**/*.scss',
+    img: 'src/img/*'
 }
 
 const build = {
-    css: 'public/build/css'
+    css: 'public/build/css',
+    img: 'public/build/img'
 }
 
 function css() {
@@ -27,9 +32,17 @@ function css() {
         .pipe(dest(build.css)) //Almacenarlo
 }
 
+function img() {
+    return src(srcFile.img)
+        .pipe(cache(imagemin({ optimizationLevel: 3 })))
+        .pipe(dest(build.img))
+}
+
 function watchArchivos() {
-    watch(srcFile.scss, css)
+    watch(srcFile.scss, css);
+    watch(srcFile.img, img);
 }
 
 exports.css = css;
+exports.img = img;
 exports.default = watchArchivos;
