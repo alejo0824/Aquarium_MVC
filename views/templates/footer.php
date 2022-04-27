@@ -1,1 +1,7 @@
-<h2>This is the Footer</h2>
+<footer class="footer">
+
+</footer>
+
+<?php 
+    $script = '<script src="build/js/app.js"></script>';
+?>
