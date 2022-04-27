@@ -28,6 +28,11 @@
                 }
                 &.active {
                     color: v.$cyan;
+                    &::after {
+                        content: '';
+                        height: 0;
+                        width: 0;
+                    }
                 }
             }
         }

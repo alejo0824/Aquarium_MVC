@@ -64,19 +64,6 @@
             height: 0;
             transition-property: opacity;
             transition-duration: 500ms;
-            .nav_options {
-                display: flex;
-                @include m.tablet {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    gap: 5rem;
-                }
-            }
-            a {
-                color: v.$light;
-                text-align: center;
-                text-transform: capitalize;
-            }
             @include m.tablet {
                 visibility: visible;
                 justify-content: space-between;
@@ -103,6 +90,38 @@
             .logo_mobile {
                 display: none;
             }
+        }
+    }
+    
+    .nav_options {
+        display: flex;
+        a {
+            color: v.$light;
+            text-align: center;
+            text-transform: capitalize;
+            &.active {
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 2.5rem;
+                    height: .1rem;
+                    background-color: v.$light;
+                    margin-top: .2rem;
+                }
+            }
+        }
+        .active {
+            &::after {
+                content: '';
+                color: v.$light;
+                width: 3rem;
+                height: .2rem;
+            }
+        }
+        @include m.tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 5rem;
         }
     }
     
@@ -137,6 +156,7 @@
             }
         }
         @include m.tablet {
+            margin-bottom: 39rem;
             max-width: 70%;
             width: 70rem;
             margin-left: 7rem;
@@ -150,8 +170,8 @@
             }
         }
         @include m.desktop {
-            margin-left: 15rem;
-            margin-bottom: 23rem;
+            margin-left: 24rem;
+            margin-bottom: 36rem;
         }
         a {
             text-transform: uppercase;
