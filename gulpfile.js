@@ -12,15 +12,21 @@ const cssnano = require('cssnano');
 //***************************img******************************
 const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
+//===========================================================/
+//***************************JS******************************
+const terser = require('gulp-terser-js');
+//===========================================================/
 
 const srcFile = {
     scss: 'src/scss/**/*.scss',
-    img: 'src/img/*'
+    img: 'src/img/*',
+    js: 'src/js/**/*.js'
 }
 
 const build = {
     css: 'public/build/css',
-    img: 'public/build/img'
+    img: 'public/build/img',
+    js: 'public/build/js'
 }
 
 function css() {
@@ -38,11 +44,20 @@ function img() {
         .pipe(dest(build.img))
 }
 
+function javascript() {
+    return src(srcFile.js)
+        .pipe(terser())
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(build.js))
+}
+
 function watchArchivos() {
     watch(srcFile.scss, css);
     watch(srcFile.img, img);
+    watch(srcFile.js, javascript);
 }
 
 exports.css = css;
 exports.img = img;
+exports.javascript = javascript;
 exports.default = watchArchivos;

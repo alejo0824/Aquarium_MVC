@@ -1,0 +1,41 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.nav {
+    &.show {
+        height: 100%;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgb(0 0 0 /0.90);
+        visibility: visible;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        .logo_mobile {
+            margin-top: 2rem;
+        }
+        .nav_options {
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 7rem;
+            a {
+                font-size: 2rem;
+                font-weight: 700;
+                &:hover {
+                    color: v.$cyan;
+                }
+                &.active {
+                    color: v.$cyan;
+                }
+            }
+        }
+    }
+}
+
+.hidden {
+    .btn__close-menu {
+        display: block;
+    }
+}

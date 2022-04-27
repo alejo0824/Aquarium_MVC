@@ -35,13 +35,17 @@
         padding: 2rem;
         display: flex;
         justify-content: space-between;
+        @include m.tablet {
+            align-items: initial;
+        }
         h2 {
             font-family: v.$font_logo;
             @include m.tablet {
                 font-size: 3rem;
             }
         }
-        .logo a {
+        .logo a,
+        .logo_mobile a {
             color: v.$light;
             &:hover {
                 color: v.$cyan;
@@ -52,40 +56,53 @@
     .container-nav {
         display: flex;
         justify-content: space-between;
-        gap: 2rem;
+        margin-left: -20rem;
         .nav {
-            display: flex;
-            justify-content: space-between;
             gap: 2rem;
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition-property: opacity;
+            transition-duration: 500ms;
+            .nav_options {
+                display: flex;
+                @include m.tablet {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap: 5rem;
+                }
+            }
             a {
                 color: v.$light;
                 text-align: center;
                 text-transform: capitalize;
-                &.active {
-                    &::after {
-                        content: '';
-                        display: block;
-                        width: 3rem;
-                        height: .1rem;
-                        background-color: v.$light;
-                        margin-top: .3rem;
-                    }
-                }
-                &:hover {
-                    &::after {
-                        content: '';
-                        display: block;
-                        width: 3rem;
-                        height: .1rem;
-                        background-color: v.$light;
-                        margin-top: .3rem;
-                    }
-                }
+            }
+            @include m.tablet {
+                visibility: visible;
+                justify-content: space-between;
+                opacity: 1;
             }
         }
-        .dark-mode-boton {
-            width: 2rem;
+        .btn__close-menu {
+            display: none;
+        }
+        .menu-mobile,
+        .dark-button {
+            width: 2.5rem;
+            margin: 2.5rem 0;
+            margin: 0;
+            margin-right: 2rem;
             filter: invert(100%);
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        @include m.tablet {
+            gap: 2rem;
+            .menu-mobile,
+            .logo_mobile {
+                display: none;
+            }
         }
     }
     
@@ -129,12 +146,12 @@
             h1 {
                 font-size: 5.5rem;
                 text-transform: uppercase;
-                margin-bottom: 7rem;
+                margin-bottom: 3rem;
             }
         }
         @include m.desktop {
-            margin-left: 22rem;
-            margin-bottom: 31rem;
+            margin-left: 15rem;
+            margin-bottom: 23rem;
         }
         a {
             text-transform: uppercase;
