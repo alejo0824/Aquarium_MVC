@@ -42,7 +42,10 @@
         </div> 
         <?php else: ?>
         <div class="banner-content">
-            <p>It isn't a Home Page</p>
+            <div class="title--custom">
+                <h3> <?php echo $title; ?></h3>
+                <p><a href="/">Home</a>&gt; <span> <?php echo $title;?> </span></p>
+            </div>
         </div>           
         <?php endif;?>      
     </div>

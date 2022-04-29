@@ -45,6 +45,6 @@ class PagesController{
     }
 
     public static function notFound(){
-        echo'Sorry my King This Page not Exist : error 404';
+       require __DIR__ . '/../views/error404.php';
     }
 }
